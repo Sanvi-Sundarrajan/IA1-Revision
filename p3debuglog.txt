@@ -1,0 +1,116 @@
+ 
+ gcc -g p3final.c
+ gdb a.out
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from a.out...done.
+(gdb) b main
+Breakpoint 1 at 0x849: file p3final.c, line 32.
+(gdb) r
+Starting program: /home/runner/IA1-Revision/a.out 
+warning: Error disabling address space randomization: Operation not permitted
+
+Breakpoint 1, main () at p3final.c:32
+32  n=input_n();
+(gdb) s
+input_n () at p3final.c:9
+9   {
+(gdb) n
+11    printf("Enter the number\n");
+(gdb) n
+Enter the number
+12    scanf("%d",&n);
+(gdb) n
+5
+13    return n;  
+(gdb) p n
+$1 = 5
+(gdb) n
+14  }
+(gdb) n
+main () at p3final.c:33
+33  sum=sum_n(n);
+(gdb) s
+sum_n (n=5) at p3final.c:17
+17   int i,sum=0 ;
+(gdb) n
+18    for (i=1;i<=n;i++)
+(gdb) n
+19      sum+=i;
+(gdb) p sum
+$2 = 0
+(gdb) n
+18    for (i=1;i<=n;i++)
+(gdb) n
+19      sum+=i;
+(gdb) n
+18    for (i=1;i<=n;i++)
+(gdb) p sum
+$3 = 3
+(gdb) n
+19      sum+=i;
+(gdb) n
+18    for (i=1;i<=n;i++)
+(gdb)  p sum
+$4 = 6
+(gdb) n
+19      sum+=i;
+(gdb) n
+18    for (i=1;i<=n;i++)
+(gdb) p sum
+$5 = 10
+(gdb) n
+19      sum+=i;
+(gdb) n
+18    for (i=1;i<=n;i++)
+(gdb) p sum
+$6 = 15
+(gdb) n
+20   return sum; 
+(gdb) n
+21  }
+(gdb) n
+main () at p3final.c:34
+34  output(n,sum);
+(gdb) s
+output (n=5, sum=15) at p3final.c:25
+25  for (i=1;i<n;i++)
+(gdb) n
+26    printf("%d+",i);
+(gdb) n
+25  for (i=1;i<n;i++)
+(gdb) n
+26    printf("%d+",i);
+(gdb) n
+25  for (i=1;i<n;i++)
+(gdb) n
+26    printf("%d+",i);
+(gdb) n
+25  for (i=1;i<n;i++)
+(gdb) n
+26    printf("%d+",i);
+(gdb) n
+25  for (i=1;i<n;i++)
+(gdb) n
+27    printf("%d=%d",n,sum);
+(gdb) n
+28  }
+(gdb) n
+main () at p3final.c:35
+35  return 0;  
+(gdb) c
+Continuing.
+1+2+3+4+5=15[Inferior 1 (process 663) exited normally]
+(gdb) 
