@@ -1,0 +1,67 @@
+
+ gcc -g p1final.c
+ gdb a.out
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from a.out...done.
+(gdb) b main
+Breakpoint 1 at 0x7fc: file p1final.c, line 27.
+(gdb) r
+Starting program: /home/runner/IA1-Revision/a.out 
+warning: Error disabling address space randomization: Operation not permitted
+
+Breakpoint 1, main () at p1final.c:27
+27  {
+(gdb) n
+29    input(&a,&b);
+(gdb) s
+input (a=0x7ffdb5e8b60c, b=0x7ffdb5e8b610) at p1final.c:13
+13    printf("Enter two numbers \n");
+(gdb) n
+Enter two numbers 
+14    scanf("%d%d",a,b);
+(gdb) n
+2 3
+15  }
+(gdb) p *a
+$1 = 2
+(gdb) p *b
+$2 = 3
+(gdb) n
+main () at p1final.c:30
+30    add( a,b,&sum);
+(gdb) s
+add (a=2, b=3, sum=0x7ffdb5e8b614) at p1final.c:19
+19    *sum=a+b;
+(gdb) n
+20  }
+(gdb) p *sum
+$3 = 5
+(gdb) n
+main () at p1final.c:31
+31      output(a,b,sum);
+(gdb) s
+output (a=2, b=3, sum=5) at p1final.c:23
+23    printf("Sum of %d + %d = %d\n",a,b,sum);
+(gdb) n
+Sum of 2 + 3 = 5
+24  }
+(gdb) n
+main () at p1final.c:32
+32    return 0;
+(gdb) c
+Continuing.
+[Inferior 1 (process 172) exited normally]
+(gdb) 
